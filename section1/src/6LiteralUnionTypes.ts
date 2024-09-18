@@ -11,7 +11,7 @@ type PositionType = Programmer | HR
 type JobPosition = 'Programmer' | 'HR' | 'CEO'
 
 
-    function getSAlaryForPosition(position: JobPosition): number | undefined {
+    function getSalaryForPosition(position: JobPosition): number | undefined {
         if (position === 'Programmer') {
             return 100000
         }
@@ -42,3 +42,48 @@ function getNumberValue(arg: unknown):number {
 console.log(getNumberValue('arew'))
 
 getNumberValue({})
+
+
+
+
+//--------------------Optional Modifiers
+
+type bonusPercent = 10 | 20 | 30;
+
+type Salary = {
+    amount: number
+    currency: 'INR' | 'USD'
+    yearlyBonus?: bonusPercent     // this is optional parameter ( we declare with '?' symbol)
+}
+
+type Employee = {
+    name: string
+    salary: Salary
+}
+
+const johnSalary: Salary = {
+    amount: 30000,
+    currency: 'INR',
+    yearlyBonus: 10         // this value we can omit also , because this is optional
+}
+
+const john: Employee = {
+    name: 'John',
+    salary: {
+        amount: 50000,
+        currency: 'INR'
+    }
+}
+
+
+// in typescript functions also have option parameter, like -
+/*
+    function paySalary(emp : Employee, extraWork?: string){  // this extraWork parameter can string type or undefined type
+    ------
+    -------
+        if(extraWork){
+        // do something....
+        }
+    }
+
+*/
