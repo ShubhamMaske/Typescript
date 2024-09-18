@@ -32,3 +32,6 @@ class ProjectManager implements MeetingHolder {
         console.log('just holding a meeting');
     }
 }
+
+
+export{}
